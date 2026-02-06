@@ -1,11 +1,9 @@
-
 const createBtn = document.getElementById("createBtn");
 const submitBtn = document.getElementById("submitBtn");
 const tellBtn = document.getElementById("tellBtn");
+const showBtn = document.getElementById("showBtn"); // ✅ FIXED
 const userInput = document.getElementById("userInput");
 const output = document.getElementById("output");
-
-
 
 let jokes = [
   { question: "What is 9 + 10?", answer: "21" },
@@ -20,8 +18,6 @@ let jokes = [
   { question: "Why was the math book sad?", answer: "It had too many problems." }
 ];
 
-
-
 let createQ = "";
 
 createBtn.addEventListener("click", createJoke);
@@ -29,14 +25,12 @@ submitBtn.addEventListener("click", submitJoke);
 tellBtn.addEventListener("click", tellJoke);
 showBtn.addEventListener("click", showAllQuestions);
 
-// Start creating a joke
 function createJoke() {
   createQ = "";
   userInput.value = "";
   output.textContent = "Type your joke QUESTION, then click Submit.";
 }
 
-// Submit question or answer
 function submitJoke() {
   let input = userInput.value.trim();
 
@@ -60,7 +54,6 @@ function submitJoke() {
   }
 }
 
-// Tell a random joke
 function tellJoke() {
   let randomIndex = Math.floor(Math.random() * jokes.length);
   let joke = jokes[randomIndex];
@@ -68,7 +61,6 @@ function tellJoke() {
   output.textContent = joke.question + " → " + joke.answer;
 }
 
-// FOR LOOP: show all questions
 function showAllQuestions() {
   output.innerHTML = "";
 
